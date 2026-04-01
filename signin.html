@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="auth.css">
+</head>
+<body>
+
+<header class="header">
+    <nav class="nav-container">
+        <div class="logo">Silent Leveling</div>
+
+        <ul class="nav-links">
+            <li><a href="#" onclick="showLanding()">Home</a></li>
+            <li><a href="#" onclick="showFeatures()">Features</a></li>
+            <li><a href="#" onclick="showSignIn()">Sign In</a></li>
+            <li><a href="#" onclick="showSignUp()">Sign Up</a></li>
+        </ul>
+
+        <a href="#" class="btn btn-primary" onclick="showSignIn()">Get Started</a>
+    </nav>
+</header>
+
+<div class="auth-container">
+  <h2>Sign In</h2>
+  <input id="loginUser" placeholder="Username">
+  <input id="loginPass" type="password" placeholder="Password">
+  <button onclick="login()">Login</button>
+</div>
+
+<script src="scripts.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

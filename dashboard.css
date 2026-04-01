@@ -1,0 +1,210 @@
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 220px;
+  height: 100vh; /* full screen height */
+  background: #020617;
+  padding: 20px;
+  overflow-y: auto; /* scroll inside sidebar if needed */
+  transition: transform 0.3s ease;
+}
+
+.sidebar h2 {
+  color: #22c55e;
+  margin-bottom: 20px;
+}
+
+.sidebar a {
+  display: block;
+  margin: 50px 0;
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.sidebar a:hover {
+  color: #22c55e;
+}
+
+.main {
+  flex: 1;
+  padding: 20px;
+  margin-left: 260px; /* match sidebar width */
+  transition: margin-left 0.3s ease;
+}
+
+/* CARDS */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.card {
+  background: #1e293b;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+/* SECTIONS */
+.section {
+  margin-top: 30px;
+}
+
+/* TASKS */
+.task {
+  background: #1e293b;
+  margin: 10px 0;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task button {
+  margin-left: 10px;
+  background: #f43f5e;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+
+.task button:hover {
+  background: #e11d48;
+}
+
+/* PROGRESS BAR */
+.progress-bar {
+  height: 20px;
+  background: #334155;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #22c55e;
+  width: 0%;
+  transition: width 0.3s;
+}
+
+/* TRACKER */
+.tracker {
+  display: grid;
+  grid-template-columns: repeat(30, 10px);
+  gap: 4px;
+}
+
+.day {
+  width: 10px;
+  height: 10px;
+  background: #1e293b;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.day.active {
+  background: #22c55e;
+}
+
+/* BUTTONS */
+button {
+  cursor: pointer;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  background: #3b82f6;
+  color: white;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #2563eb;
+}
+
+/* INPUT & SELECT */
+input, select {
+  padding: 8px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+}
+
+
+
+/* TOGGLE BUTTON */
+.toggle-btn {
+  margin-bottom: 20px;
+  background: #22c55e;
+}
+
+/* HIDDEN SIDEBAR */
+.sidebar.hidden {
+  transform: translateX(-100%);
+}
+
+.main.full {
+  margin-left: 50px; /* small margin when sidebar hidden */
+}
+
+/* Smooth transition */
+.sidebar {
+  transition: 0.3s;
+}
+
+
+@media (max-width: 768px) {
+  /* Sidebar becomes overlay */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -100%; /* hidden by default */
+    width: 220px;
+    height: 100vh;
+    z-index: 1000;
+    transition: left 0.3s ease;
+  }
+
+  .sidebar.hidden {
+    left: -100%; /* off-screen */
+  }
+
+  .sidebar.visible {
+    left: 0; /* slide in */
+  }
+
+  /* Main takes full width */
+  .main {
+    margin-left: 0;
+    padding: 20px;
+    transition: margin-left 0.3s ease;
+  }
+
+  .toggle-btn {
+    display: inline-block;
+  }
+}
+
+/* Dim background when sidebar slides in on mobile */
+@media (max-width: 768px) {
+  body.sidebar-active::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    z-index: 900;
+  }
+}

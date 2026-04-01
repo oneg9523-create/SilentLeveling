@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+<div class="layout">
+
+  <aside class="sidebar" id="sidebar">
+    <h2>Silent Leveling</h2>
+    <nav>
+      <a href="#">Dashboard</a>
+      <a href="#">Habits</a>
+      <a href="#">Tracker</a>
+      <a href="#" onclick="logout()">Logout</a>
+    </nav>
+  </aside>
+
+  <main class="main" id="main">
+    <h1>Dashboard</h1>
+    <button onclick="toggleSidebar()" class="toggle-btn">☰</button>
+
+    <!-- UPDATED CARDS -->
+    <div class="cards">
+      <div class="card">
+        <h3>Total Habits</h3>
+        <p id="totalHabits">0</p>
+      </div>
+
+      <div class="card">
+        <h3>Completed</h3>
+        <p id="completedHabits">0</p>
+      </div>
+
+      <div class="card">
+        <h3>Progress</h3>
+        <p id="progressPercent">0%</p>
+      </div>
+
+      <div class="card">
+        <h3>Current Streak 🔥</h3>
+        <p id="currentStreak">0</p>
+      </div>
+
+      <div class="card">
+        <h3>Best Streak 🏆</h3>
+        <p id="bestStreak">0</p>
+      </div>
+
+      <div class="card">
+        <h3>XP</h3>
+        <p id="xp">0</p>
+      </div>
+
+      <div class="card">
+        <h3>Level</h3>
+        <p id="level">1</p>
+      </div>
+    </div>
+
+    <!-- ADD HABIT SECTION -->
+    <div class="section">
+      <h2>Add Habit</h2>
+
+      <input id="taskInput" placeholder="e.g. Exercise">
+
+      <select id="difficulty">
+        <option value="1">Easy (+5 XP)</option>
+        <option value="2">Medium (+10 XP)</option>
+        <option value="3">Hard (+15 XP)</option>
+      </select>
+
+      <button onclick="addTask()">Add</button>
+    </div>
+
+    <!-- TASK LIST -->
+    <div class="section">
+      <h2>Your Habits</h2>
+      <div id="taskList"></div>
+    </div>
+
+    <!-- PROGRESS BAR -->
+    <div class="section">
+      <h2>Progress</h2>
+      <div class="progress-bar">
+        <div id="progressFill" class="progress-fill"></div>
+      </div>
+    </div>
+
+    <!-- TRACKER -->
+    <div class="section">
+      <h2>365-Day Tracker</h2>
+      <div id="tracker" class="tracker"></div>
+    </div>
+
+    <!-- CLEAR XP BUTTON -->
+    <div class="section">
+      <h2>XP Control</h2>
+      <button onclick="clearXP()">Clear XP</button>
+    </div>
+
+  </main>
+
+</div>
+
+<script src="scripts.js"></script>
+</body>
+</html>
